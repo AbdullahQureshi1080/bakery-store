@@ -1,0 +1,30 @@
+<?php
+// include("database/get_item.php");
+$query = "SELECT * FROM product_details ORDER BY product_id ASC";
+$result = $mysqli->query($query) or die($mysqli->error);
+      if (mysqli_num_rows($result) > 0)
+      {
+        while($row = mysqli_fetch_assoc($result))
+        {
+        echo '
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="card">
+              <form method="post" action="shop.php?action=add&id='.$row['product_id'].'">
+                <div class="inner">
+                  <img src="'.$row['product_img'].'" class="card-img-top" alt="something" >
+                </div>
+                <div class="card-body">
+                  <h3 class = "price-tag"><span>'.$row['product_price'].'</span>$</h3>
+                  <p class="card-text"><span class = "item-name" onclick="getItemName(this.innerHTML);">'.$row["product_name"].'</span></p>
+                  <input type="hidden" name="hidden_name" value="'.$row["product_name"].'" />
+                  <input type="hidden" name="hidden_price" value="'.$row["product_price"].'" />
+                  <button type="submit" name="add_to_cart" value="Add to Cart" class="btn btn-cart" >Add to Cart<i class="fas fa-cart-plus"></i></button>
+                  <button type="submit" class="btn btn-details" onclick="location.href = "product-details.php?itemName='.$row["product_name"].'";">Details<i class="fas fa-info-circle"></i></button>
+                </div>
+              </form>
+        </div>
+   </div>
+        ';
+}
+}
+        ?>
