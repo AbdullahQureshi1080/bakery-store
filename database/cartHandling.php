@@ -19,6 +19,7 @@ if (isset($_POST["add_to_cart"]))
         'item_name' => $_POST["hidden_name"],
         'item_price' => $_POST["hidden_price"],
         'item_quantity'=>1
+          // 'item_quantity'=>$POST["quantity-number"]
       );
       array_push($_SESSION['shopping_cart'],$item_array);
     }
@@ -39,6 +40,7 @@ if (isset($_POST["add_to_cart"]))
       'item_name' => $_POST["hidden_name"],
       'item_price' => $_POST["hidden_price"],
       'item_quantity' => 1
+      // 'item_quantity'=>$POST["quantity-number"]
     );
     $_SESSION["shopping_cart"][0] = $item_array;
   }
