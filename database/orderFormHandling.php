@@ -132,7 +132,9 @@ if(empty($_POST['email'])){
 // store To database
 
 if(strlen($error_message) > 0) {
-   echo $error_message;
+   echo "<script>alert('.$error_message.')</script>";
+   echo '<script>window.location="../customOrder.php"</script>';
+
    }
 else{
 
@@ -166,7 +168,7 @@ else{
 //    'Total Price' => 1000
 //  );
 $subject = "Custom Order Details";
-$body = "Wecome to Centeral Perk"; 
+$body = "Wecome to Centeral Perk";
 $headers = "From: sender email";
 
 if (mail($email, $subject, $body, $headers)) {

@@ -491,10 +491,12 @@ li {
 }
 
 
-/* @media screen and (max-width:500px) {
-.banner-text{
+@media screen and (max-width:500px) {
+.banner-text h3 {
   font-size: 20px;
-} */
+  margin-top: 20px;
+}
+}
 
 .details-product {
   width: 100%;
@@ -905,4 +907,7 @@ color:#f9f9f9;
 .btn-checkout:hover{
   background-color: #ffe0ac;
   border: none
+}
+#check-out-container{
+  padding: 2% 5%;
 }

@@ -126,6 +126,41 @@ if(isset($_POST["get_seleted_Category"])){
     }
 
 
+		    if(isset($_POST["getCustomProduct"])){
+		        $product_query = "SELECT * FROM product_details where category = 'custom'  ORDER BY product_id limit 4";
+		        $run_query = $mysqli->query($product_query);
+		        if(mysqli_num_rows($run_query) > 0){
+		            while($row = mysqli_fetch_array($run_query)){
+		                $pro_id    = $row['product_id'];
+		                $pro_cat   = $row['category'];
+		                // $pro_brand = $row['product_brand'];
+		                $pro_title = $row['product_name'];
+		                $pro_price = $row['product_price'];
+		                $pro_image = $row['product_img'];
+		                // $cat_name = $row["category"];
+		                echo '
+		                <div class="col-lg-3 col-md-4 col-sm-6">
+		                <div class="card">
+		                  <form method="post" action="customOrder.php?action=add&id='.$pro_id.'">
+		                    <div class="inner">
+		                      <img src="'.$pro_image.'" class="card-img-top" alt="something" >
+		                    </div>
+		                    <div class="card-body">
+		                      <h3 class = "price-tag"><span>'.$pro_price.'</span>$</h3>
+		                      <p class="card-text"><span class = "item-name" onclick="getItemName(this.innerHTML);">'.$pro_title.'</span></p>
+		                      <input type="hidden" name="hidden_name" value="'.$pro_title.'" />
+		                      <input type="hidden" name="hidden_price" value="'.$pro_price.'" />
+		                      <button type="submit" name="add_to_cart" value="Add to Cart" class="btn btn-cart" >Add to Cart<i class="fas fa-cart-plus"></i></button>
+		                      <a class="btn btn-details" href="product-details.php?p='.$pro_id.'">Details<i class="fas fa-info-circle"></i></a>
+		                    </div>
+		                  </form>
+		            </div>
+		            </div>
+
+		                ';
+		            }
+		        }
+		    }
 
 
 

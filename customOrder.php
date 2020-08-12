@@ -35,38 +35,9 @@ include("components/cartDiv.php");
      <div class="bestseller-title">
        <h3 id="bestseller-title">Best Sellers</h3>
      </div>
-     <div class="row">
+     <div class="row" id = "get_Custom_product">
 					<!-- Product main img -->
-					<?php
 
-     $query = "SELECT * FROM product_details where category = 'custom'  ORDER BY product_id limit 4";
-     $result = $mysqli->query($query) or die($mysqli->error);
-								if (mysqli_num_rows($result) > 0)
-								{
-									while($row = mysqli_fetch_assoc($result))
-									{
-									echo '
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-                      <div class="card">
-                          <form method="post" action="customOrder.php?action=add&id='.$row["product_id"].'">
-                          <div class="inner">
-                            <img src="'.$row['product_img'].'" class="card-img-top" alt="something" >
-                          </div>
-                          <div class="card-body">
-                            <h3 class = "price-tag"><span>'.$row['product_price'].'</span>$</h3>
-                            <p class="card-text"><span class = "item-name" onclick="getItemName(this.innerHTML);">'.$row["product_name"].'</span></p>
-                            <input type="hidden" name="hidden_name" value="'.$row["product_name"].'" />
-                            <input type="hidden" name="hidden_price" value="'.$row["product_price"].'" />
-                            <button type="submit" name="add_to_cart" value="Add to Cart" class="btn btn-cart" >Add to Cart<i class="fas fa-cart-plus"></i></button>
-                              <button type="submit" class="btn btn-details" onclick="location.href = "product-details.php?p='.$row["product_id"].'";">Details<i class="fas fa-info-circle"></i></button>
-                          </div>
-                        </form>
-                  </div>
-                            </div>
-									';
-}
-}
-									?>
 				</div>
 				<!-- /row -->
 </div>
@@ -163,10 +134,12 @@ include("components/cartDiv.php");
   <?php include("components/footer.php") ?>
   </div>
   <!-- </div> -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   <script type = "text/javascript" src = "js/cart.js"></script>
+    <script type = "text/javascript" src = "js/script.js"></script>
 </body>
 
 </html>

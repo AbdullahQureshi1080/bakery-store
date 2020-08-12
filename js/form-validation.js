@@ -72,13 +72,17 @@
             document.myForm.zip.focus() ;
             return false;
          }
-          if( document.myForm.ccnumber.value == "" || isNaN( document.myForm.ccnumber.value ) ||
-            document.myForm.ccnumber.value.length != 16 || numbers.test(cardnumber)===false) {
 
-            alert( "Please provide a 16 digit credit cart number in the format ################." );
-            document.myForm.ccnumber.focus() ;
-            return false;
+         if(document.getElemntById("credit").checked){
+           if( document.myForm.ccnumber.value == "" || isNaN( document.myForm.ccnumber.value ) ||
+             document.myForm.ccnumber.value.length != 16 || numbers.test(cardnumber)===false) {
+
+             alert( "Please provide a 16 digit credit cart number in the format ################." );
+             document.myForm.ccnumber.focus() ;
+             return false;
+          }
          }
+
          if( document.myForm.ccexpiration.value == "" || isNaN( document.myForm.ccexpiration.value ) ||
             document.myForm.ccexpiration.value.length != 6 || numbers.test(cardexpiry)===false) {
 

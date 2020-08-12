@@ -19,8 +19,8 @@ include("components/cartDiv.php");
     <div class="banner-container">
       <img class="banner-img" src="images/banner-bg.jpg" />
       <div class="banner-text">
-        <h3>Shop</h3>
-        <p><span>Home</span> <i class="fas fa-chevron-right"></i> Shop </p>
+        <h3>About Us</h3>
+        <p><span>Home</span> <i class="fas fa-chevron-right"></i> About Us </p>
       </div>
     </div>
   </div>

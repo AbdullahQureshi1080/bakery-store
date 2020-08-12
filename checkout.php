@@ -27,7 +27,7 @@ include("components/cartDiv.php");
   <!-- </div> -->
 
 
-    <div class="container">
+    <div class="container" id="check-out-container">
   <div class="py-5 text-center">
     <h2>Checkout</h2>
   </div>
@@ -109,7 +109,7 @@ include("components/cartDiv.php");
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
         <!-- form name="myForm" class="needs-validation" novalidate---->
-      <form name='myForm' onsubmit="return validate();" method="post" action="database/checkoutFormHandling.php">
+      <form id ="myForm" name='myForm' onsubmit="return validate();" method="post" action="database/checkoutFormHandling.php">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -232,7 +232,7 @@ include("components/cartDiv.php");
       </div>
 
         <hr class="mb-4">
-        <button  class="btn btn-checkout"  value="Submit" id="submit" type="submit">Confirm Order</button>
+        <button  class="btn btn-checkout"  value="Submit" id="submit" type="submit" onclick="check();">Confirm Order</button>
       </form>
     </div>
   </div>
@@ -256,6 +256,16 @@ include("components/cartDiv.php");
 
 
 <script>
+function check(){
+  var total = <?php echo $_SESSION['total']; ?>;
+  if(total == 0 ){
+    alert("No Item in cart. Buy Something");
+    alert("redirectiong to shop");
+    document.getElementById("myForm").action="shop.php";
+    // window.location = "shop.php";
+  }
+
+}
 function myFunc(){
   var getCheckbox = document.getElementById("credit");
   if(getCheckbox.checked){

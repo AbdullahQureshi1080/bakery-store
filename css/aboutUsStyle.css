@@ -256,16 +256,20 @@ header .overlay {
 
 .name {
     position: absolute;
-
+    font-size: 15px;
 }
 
 .cheffs {
     position: absolute;
     top: 0px;
-    text-align:justify-all;
+    text-align:left;
     margin-top: 30px;
+    color:black;
 }
 
+.cheffs p {
+    color:black;
+}
 
 .member img {
     width: 100%;

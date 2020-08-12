@@ -3,6 +3,7 @@ $(document).ready(function(){
     cat();
     getCat();
     product();
+    customProduct();
 
   function cat(){
             $.ajax({
@@ -50,5 +51,17 @@ function product(){
 			}
 		})
 	}
+
+  function customProduct(){
+
+  		$.ajax({
+  			url	:	"action.php",
+  			method:	"POST",
+  			data	:	{getCustomProduct:1},
+  			success	:	function(data){
+  				$("#get_Custom_product").html(data);
+  			}
+  		})
+  	}
 
 })
