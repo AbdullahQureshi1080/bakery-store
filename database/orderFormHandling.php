@@ -166,7 +166,7 @@ else{
 //    'Total Price' => 1000
 //  );
 $subject = "Custom Order Details";
-$body = "Wecome to Centeral Perk";
+$body = "Wecome to Centeral Perk"; 
 $headers = "From: sender email";
 
 if (mail($email, $subject, $body, $headers)) {

@@ -6,6 +6,7 @@
   <script src="https://kit.fontawesome.com/a85268a0dd.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css" type="text/css" />
   <link rel="stylesheet" href="css/cart.css" type="text/css" />
+  <link rel="stylesheet" href="css/aboutUsStyle.css" type="text/css" />
   <link rel="icon" href="images/favicon2.ico" />
   <title>Central Perk</title>
 </head>

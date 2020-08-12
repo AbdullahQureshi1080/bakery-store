@@ -109,7 +109,7 @@ include("components/cartDiv.php");
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
         <!-- form name="myForm" class="needs-validation" novalidate---->
-      <form name='myForm' onsubmit="return validate();" method="post" action="database/dataStore.php">
+      <form name='myForm' onsubmit="return validate();" method="post" action="database/checkoutFormHandling.php">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -139,7 +139,7 @@ include("components/cartDiv.php");
 
         <div class="mb-3">
           <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" >
+          <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" >
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>
@@ -188,34 +188,23 @@ include("components/cartDiv.php");
           </div>
         </div>
         <hr class="mb-4">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="same-address">
-          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-        </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="save-info">
-          <label class="custom-control-label" for="save-info">Save this information for next time</label>
-        </div>
-        <hr class="mb-4">
 
         <h4 class="mb-3">Payment</h4>
 
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked>
+            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" onclick="myFunc();" checked >
+            <label class="custom-control-label" for="paypal">Cash on Delivery</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" onclick="myFunc();" >
             <label class="custom-control-label" for="credit">Credit card</label>
           </div>
-          <div class="custom-control custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" >
-            <label class="custom-control-label" for="debit">Debit card</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" >
-            <label class="custom-control-label" for="paypal">PayPal</label>
-          </div>
         </div>
-        <div class="row">
 
+
+      <div class = "row" style="display:none" id = "hide">
+        <div class="row">
           <div class="col-md-6 mb-3">
             <label for="ccnumber">Credit card number</label>
             <input type="text" class="form-control" id="ccnumber" name="ccnumber" placeholder="" >
@@ -240,8 +229,10 @@ include("components/cartDiv.php");
             </div>
           </div>
         </div>
+      </div>
+
         <hr class="mb-4">
-        <button class="btn btn-checkout"  value="Submit" id="submit" type="submit">Continue to checkout</button>
+        <button  class="btn btn-checkout"  value="Submit" id="submit" type="submit">Confirm Order</button>
       </form>
     </div>
   </div>
@@ -264,13 +255,25 @@ include("components/cartDiv.php");
         <!--- Javascript form validation -------------------->
 
 
+<script>
+function myFunc(){
+  var getCheckbox = document.getElementById("credit");
+  if(getCheckbox.checked){
+    document.getElementById("hide").style.display="block";
+  }
+  else{
+    document.getElementById("hide").style.display="none";
+  }
+}
+
+</script>
 
 
-<script src= "js/form-validation.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script type = "text/javascript" src = "js/cart.js"></script>
+<script src= "js/form-validation.js"></script>
 </body>
 </body>
 </html>
