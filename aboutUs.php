@@ -29,7 +29,7 @@ include("components/cartDiv.php");
      <!---Our Approach section -------------------->
 
    <div class="textbox" >
-        <h1>Our Backery Approach</h1>
+        <h1>Our Bakery Approach</h1>
         <p>
             Central Perk has a unique in-store live baking facility, which produces one of the finest quality products in the country
             Central Perk simply does not compromise on quality and standards, so be ensured that the product you buy shall not disappoint you! Working with the slogan of You and Central Perk, we know what our customers demand.
@@ -123,7 +123,7 @@ include("components/cartDiv.php");
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
         <h1 class="display-3">Central Perk</h1>
-        <p class="lead mb-0">Backery Store</p>
+        <p class="lead mb-0">Bakery Store</p>
       </div>
     </div>
   </div>
